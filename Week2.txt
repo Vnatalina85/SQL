@@ -1,0 +1,19 @@
+Задание: 9 
+Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker
+SELECT DISTINCT MAKER FROM product
+JOIN pc
+ON product.model=pc.model
+WHERE speed>=450
+
+Задание: 10 
+Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
+SELECT model, price FROM printer
+WHERE price=(SELECT max(price) FROM printer)
+
+Задание: 6 
+Для каждого производителя, выпускающего ПК-блокноты c объёмом жесткого диска не менее 10 Гбайт, найти скорости 
+таких ПК-блокнотов. Вывод: производитель, скорость.
+SELECT DISTINCT MAKER,speed FROM laptop
+JOIN product
+ON product.model=laptop.model
+WHERE hd>=10
